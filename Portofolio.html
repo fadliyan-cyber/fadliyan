@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Security & Pentester Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Fira Code & Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: {
+                            400: '#34d399',
+                            500: '#10b981', // Emerald green (elegan & lembut)
+                            600: '#059669',
+                            700: '#047857',
+                        },
+                        dark: {
+                            base: '#0f172a',
+                            card: '#1e293b',
+                            border: '#334155',
+                        }
+                    },
+                    fontFamily: {
+                        mono: ['"Fira Code"', 'monospace'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Modern subtle grid effect */
+        .cyber-grid {
+            background-size: 30px 30px;
+            background-image: 
+                linear-gradient(to right, rgba(16, 185, 129, 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(16, 185, 129, 0.04) 1px, transparent 1px);
+        }
+        .light-grid {
+            background-size: 30px 30px;
+            background-image: 
+                linear-gradient(to right, rgba(16, 185, 129, 0.06) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(16, 185, 129, 0.06) 1px, transparent 1px);
+        }
+        /* Cursor typing animation */
+        .cursor-blink::after {
+            content: '█';
+            animation: blink 1s infinite;
+            color: #10b981;
+            margin-left: 2px;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-slate-50 text-slate-800 dark:bg-dark-base dark:text-slate-300 transition-colors duration-300 min-h-screen cyber-grid">
+
+    <!-- Header Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-dark-base/90 backdrop-blur-md border-b border-slate-200 dark:border-dark-border transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 font-mono">
+                <a href="#" class="flex items-center gap-2 font-bold text-lg text-cyber-600 dark:text-cyber-500 tracking-wider">
+                    <i class="fas fa-terminal"></i>
+                </a>
+
+                <nav class="hidden md:flex space-x-6 text-sm">
+                    <a href="#about" class="hover:text-cyber-500 transition-colors py-1"><span class="text-cyber-600 dark:text-cyber-500">01.</span> /about</a>
+                    <a href="#bootcamp" class="hover:text-cyber-500 transition-colors py-1"><span class="text-cyber-600 dark:text-cyber-500">02.</span> /bootcamp</a>
+                    <a href="#hall-of-fame" class="hover:text-cyber-500 transition-colors py-1"><span class="text-cyber-600 dark:text-cyber-500">03.</span> /hall-of-fame</a>
+                    <a href="#skills" class="hover:text-cyber-500 transition-colors py-1"><span class="text-cyber-600 dark:text-cyber-500">04.</span> /skills</a>
+                    <a href="#contact" class="hover:text-cyber-500 transition-colors py-1"><span class="text-cyber-600 dark:text-cyber-500">05.</span> /contact</a>
+                </nav>
+
+                <div class="flex items-center gap-3">
+                    <!-- Theme Toggle Button -->
+                    <button id="themeToggleBtn" title="Ubah Mode Terang/Gelap" class="p-2 rounded-lg bg-slate-200 dark:bg-dark-card text-slate-700 dark:text-cyber-500 hover:bg-slate-300 dark:hover:bg-slate-800 transition-all border border-slate-300 dark:border-dark-border">
+                        <i id="themeIcon" class="fas fa-moon text-base"></i>
+                    </button>
+
+                    <div class="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full bg-cyber-500/10 border border-cyber-500/30 text-xs font-mono text-cyber-600 dark:text-cyber-500">
+                        <span class="w-2 h-2 rounded-full bg-cyber-500 animate-ping"></span>
+                        SECURE_SESSION: ACTIVE
+                    </div>
+
+                    <button id="mobileMenuBtn" class="md:hidden p-2 rounded text-cyber-600 dark:text-cyber-500 hover:bg-slate-100 dark:hover:bg-dark-card focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-2 bg-white dark:bg-dark-card border-b border-slate-200 dark:border-dark-border font-mono text-sm">
+            <a href="#about" class="block px-3 py-2 rounded hover:text-cyber-500 hover:bg-slate-100 dark:hover:bg-dark-base"><span class="text-cyber-500">01.</span> /about</a>
+            <a href="#bootcamp" class="block px-3 py-2 rounded hover:text-cyber-500 hover:bg-slate-100 dark:hover:bg-dark-base"><span class="text-cyber-500">02.</span> /bootcamp</a>
+            <a href="#hall-of-fame" class="block px-3 py-2 rounded hover:text-cyber-500 hover:bg-slate-100 dark:hover:bg-dark-base"><span class="text-cyber-500">03.</span> /hall-of-fame</a>
+            <a href="#skills" class="block px-3 py-2 rounded hover:text-cyber-500 hover:bg-slate-100 dark:hover:bg-dark-base"><span class="text-cyber-500">04.</span> /skills</a>
+            <a href="#contact" class="block px-3 py-2 rounded hover:text-cyber-500 hover:bg-slate-100 dark:hover:bg-dark-base"><span class="text-cyber-500">05.</span> /contact</a>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section class="min-h-[75vh] flex items-center justify-center relative py-16">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+                
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyber-500/10 border border-cyber-500/30 text-cyber-600 dark:text-cyber-400 font-mono text-xs font-semibold">
+                    <i class="fas fa-shield-halved"></i> ETHICAL HACKER & PENETRATION TESTER
+                </div>
+
+                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
+                    Offensive Security & <br/>
+                    <span class="text-cyber-600 dark:text-cyber-500">Bug Bounty Hunter</span>
+                </h1>
+
+                <div class="inline-block font-mono bg-white dark:bg-dark-card px-6 py-3 rounded-xl border border-slate-200 dark:border-dark-border text-sm sm:text-base text-slate-700 dark:text-slate-300 shadow-sm">
+                    <span class="text-cyber-600 dark:text-cyber-500 font-bold">$</span> <span id="typingText" class="cursor-blink">whoami --verbose</span>
+                </div>
+
+                <p class="text-slate-600 dark:text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+                    Spesialis Keamanan Siber yang berfokus pada <span class="text-slate-900 dark:text-slate-200 font-semibold">Vulnerability Assessment</span>, <span class="text-slate-900 dark:text-slate-200 font-semibold">Web Penetration Testing</span>, dan <span class="text-slate-900 dark:text-slate-200 font-semibold">Responsible Disclosure</span>. Berhasil mengidentifikasi celah keamanan kritis pada berbagai platform web.
+                </p>
+
+                <div class="flex flex-wrap items-center justify-center gap-4 pt-4 font-mono">
+                    <a href="#bootcamp" class="px-6 py-3 rounded-xl bg-cyber-500 text-white dark:text-slate-950 font-bold shadow-md hover:bg-cyber-600 transition-all flex items-center gap-2">
+                        <i class="fas fa-graduation-cap"></i> Sertifikat Bootcamp
+                    </a>
+                    <a href="#hall-of-fame" class="px-6 py-3 rounded-xl bg-white dark:bg-dark-card border border-slate-300 dark:border-cyber-500/40 text-slate-800 dark:text-cyber-400 font-medium hover:border-cyber-500 transition-all flex items-center gap-2 shadow-sm">
+                        <i class="fas fa-award"></i> Hall of Fame
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 border-t border-slate-200 dark:border-dark-border bg-white dark:bg-dark-base transition-colors">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center md:text-left">
+                    <div class="text-cyber-600 dark:text-cyber-500 font-mono text-sm mb-2 font-semibold">// ABOUT ME</div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6">Tentang & Metodologi Kerja</h2>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                        Saya seorang praktisi Cyber Security yang berdedikasi untuk menguji dan memperkuat keamanan aplikasi web serta infrastruktur sistem. Menggunakan pendekatan analisis mendalam dan metodologi OWASP, saya membantu mendeteksi potensi celah keamanan sebelum dapat dimanfaatkan oleh pihak tak berwenang.
+                    </p>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Aktif mengasah keahlian melalui pelatihan intensif (Bootcamp), riset celah keamanan web, serta melaporkan temuan kerentanan secara etis (Responsible Disclosure).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bootcamp Certificates Section -->
+        <section id="bootcamp" class="py-20 bg-slate-100 dark:bg-dark-card/50 border-y border-slate-200 dark:border-dark-border transition-colors">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center md:text-left mb-12">
+                    <div class="text-cyber-600 dark:text-cyber-500 font-mono text-sm mb-2 font-semibold">// INTENSIVE TRAINING & CERTIFICATES</div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">Sertifikat Bootcamp</h2>
+                </div>
+
+                <!-- Bootcamp Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    
+                    <!-- Bootcamp Card 1 -->
+                    <div class="bg-white dark:bg-dark-card p-6 rounded-2xl border border-slate-200 dark:border-dark-border shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="relative overflow-hidden rounded-xl border border-slate-200 dark:border-dark-border mb-4 group">
+                                <img src="images/Sertifikat-1.jpg" 
+                                     alt="Sertifikat Bootcamp Cyber Security" 
+                                     class="w-full h-56 object-cover object-top transition-transform duration-300 group-hover:scale-105 cursor-pointer"
+                                     onclick="openModal('images/Sertifikat-1.jpg', 'Sertifikat Bootcamp Cyber Security & Pentesting')"
+                                     onerror="this.src='https://placehold.co/600x400/0f172a/10b981?text=Sertifikat-1.jpg';">
+                                
+                                <button onclick="openModal('images/Sertifikat-1.jpg', 'Sertifikat Bootcamp Cyber Security & Pentesting')" 
+                                        class="absolute bottom-3 right-3 px-3 py-1.5 bg-slate-900/80 backdrop-blur text-white font-mono text-xs rounded-lg border border-slate-700 hover:bg-cyber-500 hover:text-slate-950 transition-all">
+                                    <i class="fas fa-expand mr-1"></i> Perbesar
+                                </button>
+                            </div>
+
+                            <div class="flex items-start justify-between mb-2">
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Cyber Security & Pentesting</h3>
+                                <span class="px-2.5 py-1 rounded-md bg-cyber-500/10 text-cyber-600 dark:text-cyber-400 text-xs font-mono font-semibold border border-cyber-500/30">VERIFIED</span>
+                            </div>
+                            
+                            <p class="text-sm text-cyber-600 dark:text-cyber-500 font-mono mb-3 font-medium">Intensive Hands-On Training</p>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">Pelatihan intensif berfokus pada teknik Penetration Testing, pengujian aplikasi web, analisis kerentanan OWASP Top 10, serta pembuatan Laporan Audit Keamanan.</p>
+                            
+                            <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[11px]">
+                                <span class="px-2.5 py-1 rounded bg-slate-100 dark:bg-dark-base text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-dark-border">Web Security</span>
+                                <span class="px-2.5 py-1 rounded bg-slate-100 dark:bg-dark-base text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-dark-border">Burp Suite</span>
+                                <span class="px-2.5 py-1 rounded bg-slate-100 dark:bg-dark-base text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-dark-border">Nmap</span>
+                                <span class="px-2.5 py-1 rounded bg-slate-100 dark:bg-dark-base text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-dark-border">OWASP Top 10</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-100 dark:border-dark-border flex justify-between items-center text-xs font-mono text-slate-500">
+                            <span>Status: Completed</span>
+                            <span class="text-cyber-600 dark:text-cyber-500 font-semibold">Lulus</span>
+                        </div>
+                    </div>
+
+                    <!-- Bootcamp Card 2 -->
+                    <div class="bg-white dark:bg-dark-card p-6 rounded-2xl border border-slate-200 dark:border-dark-border shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="relative overflow-hidden rounded-xl border border-slate-200 dark:border-dark-border mb-4 group">
+                                <img src="images/Sertifikat-basic-cyber-security-web-penetration-testing.jpg" 
+                                     alt="Sertifikat Fundamental Cyber Security" 
+                                     class="w-full h-56 object-cover object-top transition-transform duration-300 group-hover:scale-105 cursor-pointer"
+                                     onclick="openModal('images/Sertifikat-basic-cyber-security-web-penetration-testing.jpg', 'Sertifikat Course Cyber Security & Pentesting')"
+                                     onerror="this.src='https://placehold.co/600x400/0f172a/10b981?text=Sertifikat-2.jpg';">
+
+                                <button onclick="openModal('images/Sertifikat-basic-cyber-security-web-penetration-testing.jpg', 'Sertifikat Course Cyber Security & Pentesting')" 
+                                        class="absolute bottom-3 right-3 px-3 py-1.5 bg-slate-900/80 backdrop-blur text-white font-mono text-xs rounded-lg border border-slate-700 hover:bg-cyber-500 hover:text-slate-950 transition-all">
+                                    <i class="fas fa-expand mr-1"></i> Perbesar
+                                </button>
+                            </div>
+
+                            <div class="flex items-start justify-between mb-2">
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Basic Cyber Security & Pentesting</h3>
+                                <span class="px-2.5 py-1 rounded-md bg-cyber-500/10 text-cyber-600 dark:text-cyber-400 text-xs font-mono font-semibold border border-cyber-500/30">COMPLETED</span>
+                            </div>
+                            
+                            <p class="text-sm text-cyber-600 dark:text-cyber-500 font-mono mb-3 font-medium">Security Fundamentals</p>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">Pembelajaran metode identifikasi celah keamanan aplikasi web secara mendalam serta tata cara Responsible Disclosure yang etis.</p>
+                            
+                            <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[11px]">
+                                <span class="px-2.5 py-1 rounded bg-slate-100 dark:bg-dark-base text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-dark-border">Info Disclosure</span>
+                                <span class="px-2.5 py-1 rounded bg-slate-100 dark:bg-dark-base text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-dark-border">IDOR</span>
+                                <span class="px-2.5 py-1 rounded bg-slate-100 dark:bg-dark-base text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-dark-border">Path Traversal</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-100 dark:border-dark-border flex justify-between items-center text-xs font-mono text-slate-500">
+                            <span>Status: Completed</span>
+                            <span class="text-cyber-600 dark:text-cyber-500 font-semibold">Lulus</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Hall of Fame Section (DENGAN PRATINJAU GAMBAR SERTIFIKAT) -->
+        <section id="hall-of-fame" class="py-20 bg-white dark:bg-dark-base transition-colors">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <div class="text-cyber-600 dark:text-cyber-500 font-mono text-sm mb-2 font-semibold">// RESPONSIBLE DISCLOSURES</div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">Hall of Fame & Penghargaan</h2>
+                    <p class="text-slate-600 dark:text-slate-400 mt-2">Daftar entitas tempat nama saya tercantum atas penemuan kerentanan keamanan secara etis (Bug Bounty / Responsible Disclosure).</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <!-- Hall of Fame Card 1 -->
+                    <div class="bg-slate-50 dark:bg-dark-card p-6 rounded-2xl border border-slate-200 dark:border-dark-border hover:border-cyber-500 transition-all flex flex-col justify-between">
+                        <div>
+                            <!-- Header Info Card -->
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="px-3 py-1 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/30 font-mono text-xs font-semibold">MEDIUM</span>
+                                <span class="font-mono text-xs text-slate-500">2026</span>
+                            </div>
+
+                            <!-- Image Container -->
+                            <div class="relative overflow-hidden rounded-xl border border-slate-200 dark:border-dark-border mb-4 group">
+                                <img src="images/Drexel-University.jpg" 
+                                     alt="Sertifikat Hall of Fame Drexel University" 
+                                     class="w-full h-44 object-cover object-top transition-transform duration-300 group-hover:scale-105 cursor-pointer"
+                                     onclick="openModal('images/Drexel-University.jpg', 'Hall of Fame Drexel University')"
+                                     onerror="this.src='https://placehold.co/600x400/0f172a/10b981?text=Drexel-University.jpg';">
+                                
+                                <button onclick="openModal('images/Drexel-University.jpg', 'Hall of Fame Drexel University')" 
+                                        class="absolute bottom-2 right-2 px-3 py-1 bg-slate-900/80 backdrop-blur text-white font-mono text-xs rounded-lg border border-slate-700 hover:bg-cyber-500 hover:text-slate-950 transition-all">
+                                    <i class="fas fa-expand mr-1"></i> Perbesar
+                                </button>
+                            </div>
+
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-2">
+                                <i class="fas fa-university text-cyber-600 dark:text-cyber-500"></i> Drexel University
+                            </h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Melaporkan kerentanan Information Disclosure pada domain institusi.</p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-200 dark:border-dark-border flex flex-col gap-2 text-xs font-mono">
+                            <span class="text-cyber-600 dark:text-cyber-500 font-semibold"><i class="fas fa-trophy mr-1"></i> Hall of Fame Listed</span>
+                            <span class="text-cyber-600 dark:text-cyber-500 font-semibold"><i class="fas fa-certificate mr-1"></i> Surat Apresiasi Resmi</span>
+                        </div>
+                    </div>
+
+                    <!-- Hall of Fame Card 2 -->
+                    <div class="bg-slate-50 dark:bg-dark-card p-6 rounded-2xl border border-slate-200 dark:border-dark-border hover:border-cyber-500 transition-all flex flex-col justify-between">
+                        <div>
+                            <!-- Header Info Card -->
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="px-3 py-1 rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/30 font-mono text-xs font-semibold">HIGH</span>
+                                <span class="font-mono text-xs text-slate-500">2026</span>
+                            </div>
+
+                            <!-- Image Container -->
+                            <div class="relative overflow-hidden rounded-xl border border-slate-200 dark:border-dark-border mb-4 group">
+                                <img src="images/Sertifikat-Jakartaprov.jpg" 
+                                     alt="Sertifikat Apresiasi Csirt Provinsi Jakarta " 
+                                     class="w-full h-44 object-cover object-top transition-transform duration-300 group-hover:scale-105 cursor-pointer"
+                                     onclick="openModal('images/Sertifikat-Jakartaprov.jpg', 'Sertifikat Apresiasi Resmi Instansi')"
+                                     onerror="this.src='https://placehold.co/600x400/0f172a/10b981?text=Sertifikat-Jakartaprov.jpg';">
+                                
+                                <button onclick="openModal('images/Sertifikat-Jakartaprov.jpg', 'Surat Apresiasi Resmi Instansi')" 
+                                        class="absolute bottom-2 right-2 px-3 py-1 bg-slate-900/80 backdrop-blur text-white font-mono text-xs rounded-lg border border-slate-700 hover:bg-cyber-500 hover:text-slate-950 transition-all">
+                                    <i class="fas fa-expand mr-1"></i> Perbesar
+                                </button>
+                            </div>
+
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-2">
+                                <i class="fas fa-building-columns text-cyber-600 dark:text-cyber-500"></i> Csirt JakartaProv
+                            </h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Menemukan Broken Acces Control - Sensitive Data Disclosure.</p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-200 dark:border-dark-border flex items-center justify-between text-xs font-mono">
+                            <span class="text-cyber-600 dark:text-cyber-500 font-semibold"><i class="fas fa-certificate mr-1"></i> Surat Apresiasi Resmi</span>
+                        </div>
+                    </div>
+
+                    <!-- Hall of Fame Card 3 -->
+                    <div class="bg-slate-50 dark:bg-dark-card p-6 rounded-2xl border border-slate-200 dark:border-dark-border hover:border-cyber-500 transition-all flex flex-col justify-between">
+                        <div>
+                            <!-- Header Info Card -->
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="px-3 py-1 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/30 font-mono text-xs font-semibold">MEDIUM</span>
+                                <span class="font-mono text-xs text-slate-500">2026</span>
+                            </div>
+
+                            <!-- Image Container -->
+                            <div class="relative overflow-hidden rounded-xl border border-slate-200 dark:border-dark-border mb-4 group">
+                                <img src="images/Sertifikat-Pustekinfo.jpg" 
+                                     alt="Bukti Temuan HackerOne" 
+                                     class="w-full h-44 object-cover object-top transition-transform duration-300 group-hover:scale-105 cursor-pointer"
+                                     onclick="openModal('images/Sertifikat-Pustekinfo.jpg', 'Sertifikat Pustekinfo DPR')"
+                                     onerror="this.src='https://placehold.co/600x400/0f172a/10b981?text=Sertifikat-Pustekinfo.jpg';">
+                                
+                                <button onclick="openModal('images/Sertifikat-Pustekinfo.jpg', 'Sertifikat-Pustekinfo-DPR')" 
+                                        class="absolute bottom-2 right-2 px-3 py-1 bg-slate-900/80 backdrop-blur text-white font-mono text-xs rounded-lg border border-slate-700 hover:bg-cyber-500 hover:text-slate-950 transition-all">
+                                    <i class="fas fa-expand mr-1"></i> Perbesar
+                                </button>
+                            </div>
+
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-2">
+                                <i class="fas fa-building-columns text-cyber-600 dark:text-cyber-500"></i> Pustekinfo DPR
+                            </h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Temuan Information Exposure .</p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-200 dark:border-dark-border flex items-center justify-between text-xs font-mono">
+                            <span class="text-cyber-600 dark:text-cyber-500 font-semibold"><i class="fas fa-certificate mr-1"></i> Surat Apresiasi Resmi</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills Section -->
+        <section id="skills" class="py-20 bg-slate-100 dark:bg-dark-card/50 border-y border-slate-200 dark:border-dark-border transition-colors">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <div class="text-cyber-600 dark:text-cyber-500 font-mono text-sm mb-2 font-semibold">// CAPABILITIES & TOOLS</div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">Keahlian Penetration Testing</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white dark:bg-dark-card p-6 rounded-2xl border border-slate-200 dark:border-dark-border shadow-sm">
+                        <div class="text-cyber-600 dark:text-cyber-500 text-3xl mb-4"><i class="fas fa-globe"></i></div>
+                        <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-2">Web App Security</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 mb-4">OWASP Top 10, SQLi, XSS, CSRF, SSRF, IDOR, Auth Bypass.</p>
+                        <div class="space-y-1 font-mono text-xs text-cyber-600 dark:text-cyber-400 font-medium">
+                            <div>• Burp Suite</div>
+                            <div>• OWASP ZAP</div>
+                            <div>• SQLmap</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-dark-card p-6 rounded-2xl border border-slate-200 dark:border-dark-border shadow-sm">
+                        <div class="text-cyber-600 dark:text-cyber-500 text-3xl mb-4"><i class="fas fa-network-wired"></i></div>
+                        <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-2">Network Pentesting</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 mb-4">Port scanning, Vulnerability Assessments, Network Traffic Analysis.</p>
+                        <div class="space-y-1 font-mono text-xs text-cyber-600 dark:text-cyber-400 font-medium">
+                            <div>• Nmap</div>
+                            <div>• Wireshark</div>
+                            <div>• Metasploit</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-dark-card p-6 rounded-2xl border border-slate-200 dark:border-dark-border shadow-sm">
+                        <div class="text-cyber-600 dark:text-cyber-500 text-3xl mb-4"><i class="fas fa-code"></i></div>
+                        <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-2">Scripting & Exploit</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 mb-4">Mengembangkan skrip otomatisasi dan Proof-of-Concept (PoC) exploit.</p>
+                        <div class="space-y-1 font-mono text-xs text-cyber-600 dark:text-cyber-400 font-medium">
+                            <div>• Python 3</div>
+                            <div>• Bash / Shell</div>
+                            <div>• Go (Golang)</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-dark-card p-6 rounded-2xl border border-slate-200 dark:border-dark-border shadow-sm">
+                        <div class="text-cyber-600 dark:text-cyber-500 text-3xl mb-4"><i class="fas fa-file-shield"></i></div>
+                        <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-2">Reporting & Mitigasi</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 mb-4">Dokumentasi teknis kerentanan, rekomendasi perbaikan, & CVSS scoring.</p>
+                        <div class="space-y-1 font-mono text-xs text-cyber-600 dark:text-cyber-400 font-medium">
+                            <div>• CVSS v3.1 / v4.0</div>
+                            <div>• Remediation Plan</div>
+                            <div>• Executive Summary</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-white dark:bg-dark-base transition-colors">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-4xl mx-auto bg-slate-50 dark:bg-dark-card rounded-3xl border border-slate-200 dark:border-dark-border p-8 sm:p-12 shadow-sm">
+                    
+                    <div class="text-center mb-10">
+                        <div class="text-cyber-600 dark:text-cyber-500 font-mono text-sm mb-2 font-semibold">// INITIATE CONNECTION</div>
+                        <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Hubungi / Berkolaborasi</h2>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mt-2">Untuk konsultasi keamanan siber, jasa penetration testing, atau laporan responsible disclosure.</p>
+                    </div>
+
+                    <div class="flex flex-wrap justify-center gap-4 mb-10 font-mono text-xs">
+                        <a href="mailto:ayuoktaa10@gmail.com" class="px-4 py-2.5 rounded-xl bg-white dark:bg-dark-base border border-slate-200 dark:border-dark-border hover:border-cyber-500 text-slate-700 dark:text-slate-300 hover:text-cyber-600 dark:hover:text-cyber-400 transition-all flex items-center gap-2 shadow-sm">
+                            <i class="fas fa-envelope text-cyber-600 dark:text-cyber-500"></i> ayuoktaa10@gmail.com
+                        </a>
+                        <a href="https://github.com" target="_blank" class="px-4 py-2.5 rounded-xl bg-white dark:bg-dark-base border border-slate-200 dark:border-dark-border hover:border-cyber-500 text-slate-700 dark:text-slate-300 hover:text-cyber-600 dark:hover:text-cyber-400 transition-all flex items-center gap-2 shadow-sm">
+                            <i class="fab fa-github text-cyber-600 dark:text-cyber-500"></i> GitHub
+                        </a>
+                        <a href="https://linkedin.com/in/fadliyan-ramaditia" target="_blank" class="px-4 py-2.5 rounded-xl bg-white dark:bg-dark-base border border-slate-200 dark:border-dark-border hover:border-cyber-500 text-slate-700 dark:text-slate-300 hover:text-cyber-600 dark:hover:text-cyber-400 transition-all flex items-center gap-2 shadow-sm">
+                            <i class="fab fa-linkedin text-cyber-600 dark:text-cyber-500"></i> LinkedIn
+                        </a>
+                    </div>
+
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-xs font-mono text-slate-500 dark:text-slate-400 mb-2 font-medium">NAME / ORGANIZATION</label>
+                                <input type="text" id="name" required placeholder="John Doe / PT Secure" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-dark-base border border-slate-300 dark:border-dark-border text-slate-900 dark:text-white focus:outline-none focus:border-cyber-500 font-mono text-sm transition-all shadow-sm">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-xs font-mono text-slate-500 dark:text-slate-400 mb-2 font-medium">EMAIL ADDRESS</label>
+                                <input type="email" id="email" required placeholder="target@domain.com" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-dark-base border border-slate-300 dark:border-dark-border text-slate-900 dark:text-white focus:outline-none focus:border-cyber-500 font-mono text-sm transition-all shadow-sm">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-xs font-mono text-slate-500 dark:text-slate-400 mb-2 font-medium">SUBJECT</label>
+                            <input type="text" id="subject" required placeholder="Security Audit Request / Inquiry" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-dark-base border border-slate-300 dark:border-dark-border text-slate-900 dark:text-white focus:outline-none focus:border-cyber-500 font-mono text-sm transition-all shadow-sm">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-xs font-mono text-slate-500 dark:text-slate-400 mb-2 font-medium">MESSAGE</label>
+                            <textarea id="message" rows="4" required placeholder="Detail scope target atau pesan Anda..." class="w-full px-4 py-3 rounded-xl bg-white dark:bg-dark-base border border-slate-300 dark:border-dark-border text-slate-900 dark:text-white focus:outline-none focus:border-cyber-500 font-mono text-sm transition-all shadow-sm"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 rounded-xl bg-cyber-500 text-white dark:text-slate-950 font-bold font-mono hover:bg-cyber-600 transition-all flex items-center justify-center gap-2 shadow-md">
+                            <i class="fas fa-paper-plane"></i> SEND ENCRYPTED MESSAGE
+                        </button>
+                    </form>
+                    <div id="formStatus" class="hidden mt-4 p-4 rounded-xl font-mono text-xs text-center"></div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Pop-up untuk Memperbesar Gambar Sertifikat -->
+    <div id="imageModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="relative max-w-4xl w-full bg-white dark:bg-dark-card rounded-2xl border border-slate-200 dark:border-cyber-500/40 p-4 shadow-2xl">
+            <div class="flex justify-between items-center mb-3 px-2 font-mono">
+                <span id="modalTitle" class="text-sm font-bold text-cyber-600 dark:text-cyber-500">Preview Sertifikat</span>
+                <button onclick="closeModal()" class="text-slate-500 hover:text-cyber-500 p-2 text-lg">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="overflow-auto max-h-[80vh] rounded-xl border border-slate-200 dark:border-dark-border flex justify-center bg-slate-100 dark:bg-black">
+                <img id="modalImage" src="" alt="Full Preview" class="max-w-full h-auto object-contain">
+            </div>
+        </div>
+    </div>
+
+    <!-- Cyber Footer -->
+    <footer class="py-8 border-t border-slate-200 dark:border-dark-border font-mono text-xs text-center text-slate-500 transition-colors">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>[+] Systems Operational | Ethical Hacking Portfolio &copy; 2026</p>
+        </div>
+    </footer>
+
+    <!-- JS Logic -->
+    <script>
+        // 1. Light / Dark Theme Switcher Logic
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        const themeIcon = document.getElementById('themeIcon');
+        const html = document.documentElement;
+
+        // Load saved theme or system preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            html.classList.remove('dark');
+            themeIcon.className = 'fas fa-sun text-amber-500';
+        } else {
+            html.classList.add('dark');
+            themeIcon.className = 'fas fa-moon text-cyber-500';
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                themeIcon.className = 'fas fa-sun text-amber-500';
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                themeIcon.className = 'fas fa-moon text-cyber-500';
+            }
+        });
+
+        // 2. Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 3. Terminal Typing Effect Simulation
+        const phrases = [
+            "whoami --verbose",
+            "penetration-tester --active",
+            "bug-bounty-hunter --active",
+            "cat /etc/achievements.txt"
+        ];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingElement = document.getElementById('typingText');
+
+        function typeLoop() {
+            const currentPhrase = phrases[phraseIndex];
+            
+            if (isDeleting) {
+                typingElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 40 : 80;
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(typeLoop, typeSpeed);
+        }
+
+        document.addEventListener('DOMContentLoaded', typeLoop);
+
+        // 4. Image Modal Handler (Perbesar Gambar)
+        function openModal(imageSrc, title) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const modalTitle = document.getElementById('modalTitle');
+
+            modalImg.src = imageSrc;
+            modalTitle.textContent = title || 'Preview Sertifikat';
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').classList.add('hidden');
+        }
+
+        // Close Modal on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // 5. Form Submit Handler
+        const contactForm = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            formStatus.classList.remove('hidden');
+            formStatus.className = 'mt-4 p-4 rounded-xl font-mono text-xs text-center bg-cyber-500/10 border border-cyber-500/30 text-cyber-600 dark:text-cyber-400';
+            formStatus.innerHTML = '[+] MESSAGE TRANSMITTED SUCCESSFULLY. ACK RECEIVED.';
+            contactForm.reset();
+
+            setTimeout(() => {
+                formStatus.classList.add('hidden');
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
