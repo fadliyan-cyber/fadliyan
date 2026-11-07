@@ -422,27 +422,42 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-20 bg-white dark:bg-dark-base transition-colors">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="max-w-4xl mx-auto bg-slate-50 dark:bg-dark-card rounded-3xl border border-slate-200 dark:border-dark-border p-8 sm:p-12 shadow-sm">
-                    
-                    <div class="text-center mb-10">
-                        <div class="text-cyber-600 dark:text-cyber-500 font-mono text-sm mb-2 font-semibold">// INITIATE CONNECTION</div>
-                        <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Hubungi / Berkolaborasi</h2>
-                        <p class="text-slate-600 dark:text-slate-400 text-sm mt-2">Untuk konsultasi keamanan siber, jasa penetration testing, atau laporan responsible disclosure.</p>
-                    </div>
+        <!-- 05. /contact Section -->
+<section id="contact" class="py-20 bg-white dark:bg-dark-base transition-colors">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <div class="text-cyber-600 dark:text-cyber-500 font-mono text-sm mb-2 font-semibold">// INITIATE CONNECTION</div>
+            <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">Hubungi / Berkolaborasi</h2>
+            <p class="text-slate-600 dark:text-slate-400 mt-2">Untuk konsultasi keamanan siber, jasa penetration testing, atau laporan responsible disclosure.</p>
+        </div>
 
-                    <div class="flex flex-wrap justify-center gap-4 mb-10 font-mono text-xs">
-                        <a href="mailto:fadliyan2020@gmail.com" class="px-4 py-2.5 rounded-xl bg-white dark:bg-dark-base border border-slate-200 dark:border-dark-border hover:border-cyber-500 text-slate-700 dark:text-slate-300 hover:text-cyber-600 dark:hover:text-cyber-400 transition-all flex items-center gap-2 shadow-sm">
-                            <i class="fas fa-envelope text-cyber-600 dark:text-cyber-500"></i> fadliyan2020@gmail.com
-                        </a>
-                        <a href="https://github.com/fadliyan-cyber" target="_blank" class="px-4 py-2.5 rounded-xl bg-white dark:bg-dark-base border border-slate-200 dark:border-dark-border hover:border-cyber-500 text-slate-700 dark:text-slate-300 hover:text-cyber-600 dark:hover:text-cyber-400 transition-all flex items-center gap-2 shadow-sm">
-                            <i class="fab fa-github text-cyber-600 dark:text-cyber-500"></i> GitHub
-                        </a>
-                        <a href="https://linkedin.com/in/fadliyan-ramaditia" target="_blank" class="px-4 py-2.5 rounded-xl bg-white dark:bg-dark-base border border-slate-200 dark:border-dark-border hover:border-cyber-500 text-slate-700 dark:text-slate-300 hover:text-cyber-600 dark:hover:text-cyber-400 transition-all flex items-center gap-2 shadow-sm">
-                            <i class="fab fa-linkedin text-cyber-600 dark:text-cyber-500"></i> LinkedIn
-                        </a>
+        <div class="bg-slate-50 dark:bg-dark-card p-8 rounded-2xl border border-slate-200 dark:border-dark-border shadow-sm">
+            <form action="https://formspree.io/f/xvkknwyo" method="POST" class="space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-mono text-slate-500 dark:text-slate-400 mb-2 font-medium">NAME / ORGANIZATION</label>
+                        <input type="text" name="name" required placeholder="John Doe / PT Secure" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-dark-base border border-slate-300 dark:border-dark-border text-slate-900 dark:text-white focus:outline-none focus:border-cyber-500 font-mono text-sm">
                     </div>
+                    <div>
+                        <label class="block text-xs font-mono text-slate-500 dark:text-slate-400 mb-2 font-medium">EMAIL ADDRESS</label>
+                        <input type="email" name="email" required placeholder="target@domain.com" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-dark-base border border-slate-300 dark:border-dark-border text-slate-900 dark:text-white focus:outline-none focus:border-cyber-500 font-mono text-sm">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-mono text-slate-500 dark:text-slate-400 mb-2 font-medium">SUBJECT</label>
+                    <input type="text" name="subject" required placeholder="Security Audit Request / Inquiry" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-dark-base border border-slate-300 dark:border-dark-border text-slate-900 dark:text-white focus:outline-none focus:border-cyber-500 font-mono text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-mono text-slate-500 dark:text-slate-400 mb-2 font-medium">MESSAGE</label>
+                    <textarea name="message" rows="4" required placeholder="Detail scope target atau pesan Anda ..." class="w-full px-4 py-3 rounded-xl bg-white dark:bg-dark-base border border-slate-300 dark:border-dark-border text-slate-900 dark:text-white focus:outline-none focus:border-cyber-500 font-mono text-sm"></textarea>
+                </div>
+                <button type="submit" class="w-full py-4 rounded-xl bg-cyber-500 text-slate-950 font-bold font-mono hover:bg-cyber-400 transition-all flex items-center justify-center gap-2 shadow-md">
+                    <i class="fas fa-paper-plane"></i> SEND ENCRYPTED MESSAGE
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
 
             
                     <form action="https://formspree.io/f/xvkknwyo" method="POST" class="space-y-6">
