@@ -20,7 +20,7 @@
                     colors: {
                         cyber: {
                             400: '#34d399',
-                            500: '#10b981', // Emerald green (elegan & lembut)
+                            500: '#10b981',
                             600: '#059669',
                             700: '#047857',
                         },
@@ -39,20 +39,12 @@
         }
     </script>
     <style>
-        /* Modern subtle grid effect */
         .cyber-grid {
             background-size: 30px 30px;
             background-image: 
                 linear-gradient(to right, rgba(16, 185, 129, 0.04) 1px, transparent 1px),
                 linear-gradient(to bottom, rgba(16, 185, 129, 0.04) 1px, transparent 1px);
         }
-        .light-grid {
-            background-size: 30px 30px;
-            background-image: 
-                linear-gradient(to right, rgba(16, 185, 129, 0.06) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(16, 185, 129, 0.06) 1px, transparent 1px);
-        }
-        /* Cursor typing animation */
         .cursor-blink::after {
             content: '█';
             animation: blink 1s infinite;
@@ -84,7 +76,6 @@
                 </nav>
 
                 <div class="flex items-center gap-3">
-                    <!-- Theme Toggle Button -->
                     <button id="themeToggleBtn" title="Ubah Mode Terang/Gelap" class="p-2 rounded-lg bg-slate-200 dark:bg-dark-card text-slate-700 dark:text-cyber-500 hover:bg-slate-300 dark:hover:bg-slate-800 transition-all border border-slate-300 dark:border-dark-border">
                         <i id="themeIcon" class="fas fa-moon text-base"></i>
                     </button>
@@ -174,17 +165,12 @@
                     <!-- Bootcamp Card 1 -->
                     <div class="bg-white dark:bg-dark-card p-6 rounded-2xl border border-slate-200 dark:border-dark-border shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
                         <div>
-                            <div class="relative overflow-hidden rounded-xl border border-slate-200 dark:border-dark-border mb-4 group">
+                            <!-- Menggunakan object-contain dan bg netral agar gambar utuh tidak terpotong -->
+                            <div class="relative overflow-hidden rounded-xl border border-slate-200 dark:border-dark-border mb-4 bg-slate-900 flex items-center justify-center p-2">
                                 <img src="images/Sertifikat-1.jpg" 
                                      alt="Sertifikat Bootcamp Cyber Security" 
-                                     class="w-full h-56 object-cover object-top transition-transform duration-300 group-hover:scale-105 cursor-pointer"
-                                     onclick="openModal('images/Sertifikat-1.jpg', 'Sertifikat Bootcamp Cyber Security & Pentesting')"
+                                     class="w-full h-52 object-contain"
                                      onerror="this.src='https://placehold.co/600x400/0f172a/10b981?text=Sertifikat-1.jpg';">
-                                
-                                <button onclick="openModal('images/Sertifikat-1.jpg', 'Sertifikat Bootcamp Cyber Security & Pentesting')" 
-                                        class="absolute bottom-3 right-3 px-3 py-1.5 bg-slate-900/80 backdrop-blur text-white font-mono text-xs rounded-lg border border-slate-700 hover:bg-cyber-500 hover:text-slate-950 transition-all">
-                                    <i class="fas fa-expand mr-1"></i> Perbesar
-                                </button>
                             </div>
 
                             <div class="flex items-start justify-between mb-2">
@@ -212,17 +198,11 @@
                     <!-- Bootcamp Card 2 -->
                     <div class="bg-white dark:bg-dark-card p-6 rounded-2xl border border-slate-200 dark:border-dark-border shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
                         <div>
-                            <div class="relative overflow-hidden rounded-xl border border-slate-200 dark:border-dark-border mb-4 group">
+                            <div class="relative overflow-hidden rounded-xl border border-slate-200 dark:border-dark-border mb-4 bg-slate-900 flex items-center justify-center p-2">
                                 <img src="images/Sertifikat-basic-cyber-security-web-penetration-testing.jpg" 
                                      alt="Sertifikat Fundamental Cyber Security" 
-                                     class="w-full h-56 object-cover object-top transition-transform duration-300 group-hover:scale-105 cursor-pointer"
-                                     onclick="openModal('images/Sertifikat-basic-cyber-security-web-penetration-testing.jpg', 'Sertifikat Course Cyber Security & Pentesting')"
+                                     class="w-full h-52 object-contain"
                                      onerror="this.src='https://placehold.co/600x400/0f172a/10b981?text=Sertifikat-2.jpg';">
-
-                                <button onclick="openModal('images/Sertifikat-basic-cyber-security-web-penetration-testing.jpg', 'Sertifikat Course Cyber Security & Pentesting')" 
-                                        class="absolute bottom-3 right-3 px-3 py-1.5 bg-slate-900/80 backdrop-blur text-white font-mono text-xs rounded-lg border border-slate-700 hover:bg-cyber-500 hover:text-slate-950 transition-all">
-                                    <i class="fas fa-expand mr-1"></i> Perbesar
-                                </button>
                             </div>
 
                             <div class="flex items-start justify-between mb-2">
@@ -269,17 +249,11 @@
                                 <span class="font-mono text-xs text-slate-500">2026</span>
                             </div>
 
-                            <div class="relative overflow-hidden rounded-xl border border-slate-200 dark:border-dark-border mb-4 group">
+                            <div class="relative overflow-hidden rounded-xl border border-slate-200 dark:border-dark-border mb-4 bg-slate-900 flex items-center justify-center p-2">
                                 <img src="images/Drexel-University.jpg" 
                                      alt="Sertifikat Hall of Fame Drexel University" 
-                                     class="w-full h-44 object-cover object-top transition-transform duration-300 group-hover:scale-105 cursor-pointer"
-                                     onclick="openModal('images/Drexel-University.jpg', 'Hall of Fame Drexel University')"
+                                     class="w-full h-44 object-contain"
                                      onerror="this.src='https://placehold.co/600x400/0f172a/10b981?text=Drexel-University.jpg';">
-                                
-                                <button onclick="openModal('images/Drexel-University.jpg', 'Hall of Fame Drexel University')" 
-                                        class="absolute bottom-2 right-2 px-3 py-1 bg-slate-900/80 backdrop-blur text-white font-mono text-xs rounded-lg border border-slate-700 hover:bg-cyber-500 hover:text-slate-950 transition-all">
-                                    <i class="fas fa-expand mr-1"></i> Perbesar
-                                </button>
                             </div>
 
                             <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-2">
@@ -301,17 +275,11 @@
                                 <span class="font-mono text-xs text-slate-500">2026</span>
                             </div>
 
-                            <div class="relative overflow-hidden rounded-xl border border-slate-200 dark:border-dark-border mb-4 group">
+                            <div class="relative overflow-hidden rounded-xl border border-slate-200 dark:border-dark-border mb-4 bg-slate-900 flex items-center justify-center p-2">
                                 <img src="images/Sertifikat-Jakartaprov.jpg" 
                                      alt="Sertifikat Apresiasi Csirt Provinsi Jakarta" 
-                                     class="w-full h-44 object-cover object-top transition-transform duration-300 group-hover:scale-105 cursor-pointer"
-                                     onclick="openModal('images/Sertifikat-Jakartaprov.jpg', 'Sertifikat Apresiasi Resmi Instansi')"
+                                     class="w-full h-44 object-contain"
                                      onerror="this.src='https://placehold.co/600x400/0f172a/10b981?text=Sertifikat-Jakartaprov.jpg';">
-                                
-                                <button onclick="openModal('images/Sertifikat-Jakartaprov.jpg', 'Surat Apresiasi Resmi Instansi')" 
-                                        class="absolute bottom-2 right-2 px-3 py-1 bg-slate-900/80 backdrop-blur text-white font-mono text-xs rounded-lg border border-slate-700 hover:bg-cyber-500 hover:text-slate-950 transition-all">
-                                    <i class="fas fa-expand mr-1"></i> Perbesar
-                                </button>
                             </div>
 
                             <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-2">
@@ -333,17 +301,11 @@
                                 <span class="font-mono text-xs text-slate-500">2026</span>
                             </div>
 
-                            <div class="relative overflow-hidden rounded-xl border border-slate-200 dark:border-dark-border mb-4 group">
+                            <div class="relative overflow-hidden rounded-xl border border-slate-200 dark:border-dark-border mb-4 bg-slate-900 flex items-center justify-center p-2">
                                 <img src="images/Sertifikat-Pustekinfo.jpg" 
                                      alt="Sertifikat Pustekinfo DPR" 
-                                     class="w-full h-44 object-cover object-top transition-transform duration-300 group-hover:scale-105 cursor-pointer"
-                                     onclick="openModal('images/Sertifikat-Pustekinfo.jpg', 'Sertifikat Pustekinfo DPR')"
+                                     class="w-full h-44 object-contain"
                                      onerror="this.src='https://placehold.co/600x400/0f172a/10b981?text=Sertifikat-Pustekinfo.jpg';">
-                                
-                                <button onclick="openModal('images/Sertifikat-Pustekinfo.jpg', 'Sertifikat-Pustekinfo-DPR')" 
-                                        class="absolute bottom-2 right-2 px-3 py-1 bg-slate-900/80 backdrop-blur text-white font-mono text-xs rounded-lg border border-slate-700 hover:bg-cyber-500 hover:text-slate-950 transition-all">
-                                    <i class="fas fa-expand mr-1"></i> Perbesar
-                                </button>
                             </div>
 
                             <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-2">
@@ -440,7 +402,7 @@
                         </a>
                     </div>
 
-                    <form action="https://formspree.io/f/xvkknwyo" method="POST" class="space-y-6">
+                    <form id="contactForm" action="https://formspree.io/f/xvkknwyo" method="POST" class="space-y-6">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div>
                                 <label for="name" class="block text-xs font-mono text-slate-500 dark:text-slate-400 mb-2 font-medium">NAME / ORGANIZATION</label>
@@ -463,26 +425,12 @@
                             <i class="fas fa-paper-plane"></i> SEND ENCRYPTED MESSAGE
                         </button>
                     </form>
-                    
+                    <div id="formStatus" class="hidden mt-4 p-4 rounded-xl font-mono text-xs text-center"></div>
+
                 </div>
             </div>
         </section>
     </main>
-
-    <!-- Modal Pop-up untuk Memperbesar Gambar Sertifikat -->
-    <div id="imageModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="relative max-w-4xl w-full bg-white dark:bg-dark-card rounded-2xl border border-slate-200 dark:border-cyber-500/40 p-4 shadow-2xl">
-            <div class="flex justify-between items-center mb-3 px-2 font-mono">
-                <span id="modalTitle" class="text-sm font-bold text-cyber-600 dark:text-cyber-500">Preview Sertifikat</span>
-                <button onclick="closeModal()" class="text-slate-500 hover:text-cyber-500 p-2 text-lg">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="overflow-auto max-h-[80vh] rounded-xl border border-slate-200 dark:border-dark-border flex justify-center bg-slate-100 dark:bg-black">
-                <img id="modalImage" src="" alt="Full Preview" class="max-w-full h-auto object-contain">
-            </div>
-        </div>
-    </div>
 
     <!-- Cyber Footer -->
     <footer class="py-8 border-t border-slate-200 dark:border-dark-border font-mono text-xs text-center text-slate-500 transition-colors">
@@ -566,24 +514,56 @@
 
         document.addEventListener('DOMContentLoaded', typeLoop);
 
-        // 4. Image Modal Handler (Perbesar Gambar)
-        function openModal(imageSrc, title) {
-            const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImage');
-            const modalTitle = document.getElementById('modalTitle');
+        // 4. Form Submit Handler (AJAX Fetch ke Formspree tanpa pindah halaman)
+        const contactForm = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
 
-            modalImg.src = imageSrc;
-            modalTitle.textContent = title || 'Preview Sertifikat';
-            modal.classList.remove('hidden');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(contactForm);
+                
+                if (formStatus) {
+                    formStatus.classList.remove('hidden');
+                    formStatus.className = 'mt-4 p-4 rounded-xl font-mono text-xs text-center bg-cyber-500/10 border border-cyber-500/30 text-cyber-600 dark:text-cyber-400';
+                    formStatus.innerHTML = '[*] TRANSMITTING ENCRYPTED MESSAGE...';
+                }
+
+                try {
+                    const response = await fetch(contactForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        if (formStatus) {
+                            formStatus.className = 'mt-4 p-4 rounded-xl font-mono text-xs text-center bg-cyber-500/10 border border-cyber-500/30 text-cyber-600 dark:text-cyber-400';
+                            formStatus.innerHTML = '[+] MESSAGE TRANSMITTED SUCCESSFULLY. ACK RECEIVED.';
+                        }
+                        contactForm.reset();
+                    } else {
+                        const data = await response.json();
+                        if (formStatus) {
+                            formStatus.className = 'mt-4 p-4 rounded-xl font-mono text-xs text-center bg-rose-500/10 border border-rose-500/30 text-rose-600 dark:text-rose-400';
+                            formStatus.innerHTML = `[-] ERROR: ${data.error || 'Gagal mengirim pesan.'}`;
+                        }
+                    }
+                } catch (error) {
+                    if (formStatus) {
+                        formStatus.className = 'mt-4 p-4 rounded-xl font-mono text-xs text-center bg-rose-500/10 border border-rose-500/30 text-rose-600 dark:text-rose-400';
+                        formStatus.innerHTML = '[-] NETWORK ERROR. GAGAL TERHUBUNG KE SERVER.';
+                    }
+                }
+
+                setTimeout(() => {
+                    if (formStatus) formStatus.classList.add('hidden');
+                }, 6000);
+            });
         }
-
-        function closeModal() {
-            document.getElementById('imageModal').classList.add('hidden');
-        }
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeModal();
-        });
     </script>
 </body>
 </html>
